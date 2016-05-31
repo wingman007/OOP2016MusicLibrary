@@ -160,6 +160,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PlaylistsController.cs" />
+    <Compile Include="Controllers\SongsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -170,6 +172,10 @@
     <Compile Include="Migrations\201605311047336_TryToFixTheError.cs" />
     <Compile Include="Migrations\201605311047336_TryToFixTheError.Designer.cs">
       <DependentUpon>201605311047336_TryToFixTheError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605311113458_AddSongsAndPlaylists.cs" />
+    <Compile Include="Migrations\201605311113458_AddSongsAndPlaylists.Designer.cs">
+      <DependentUpon>201605311113458_AddSongsAndPlaylists.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -225,6 +231,16 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Playlists\Create.cshtml" />
+    <Content Include="Views\Playlists\Delete.cshtml" />
+    <Content Include="Views\Playlists\Details.cshtml" />
+    <Content Include="Views\Playlists\Edit.cshtml" />
+    <Content Include="Views\Playlists\Index.cshtml" />
+    <Content Include="Views\Songs\Create.cshtml" />
+    <Content Include="Views\Songs\Delete.cshtml" />
+    <Content Include="Views\Songs\Details.cshtml" />
+    <Content Include="Views\Songs\Edit.cshtml" />
+    <Content Include="Views\Songs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -242,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605311047336_TryToFixTheError.resx">
       <DependentUpon>201605311047336_TryToFixTheError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605311113458_AddSongsAndPlaylists.resx">
+      <DependentUpon>201605311113458_AddSongsAndPlaylists.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using System.Collections.Generic;
+using System.Data.Entity;
 
 namespace MusicLibrary.Models
 {
@@ -15,5 +16,8 @@ namespace MusicLibrary.Models
             : base("DefaultConnection")
         {
         }
+
+        public DbSet<Playlist> Playlists { get; set; }
+        public DbSet<Song> Songs{ get; set; }
     }
 }
