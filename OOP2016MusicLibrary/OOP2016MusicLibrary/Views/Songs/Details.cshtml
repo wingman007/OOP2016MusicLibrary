@@ -1,0 +1,58 @@
+﻿@model OOP2016MusicLibrary.Models.Song
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Song</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Playlist.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Playlist.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.songName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.songName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.artist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.artist)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.imageSrc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.imageSrc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fileSrc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fileSrc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id , id2 = ViewBag.id2}) |
+    @Html.ActionLink("Back to List", "Index", new { id2 = ViewBag.id2})
+</p>

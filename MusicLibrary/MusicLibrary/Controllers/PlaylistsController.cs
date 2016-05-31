@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using MusicLibrary.Models;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.AspNet.Identity;
+
 namespace MusicLibrary.Controllers
 {
     [Authorize]

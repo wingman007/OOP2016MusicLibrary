@@ -17,8 +17,7 @@ namespace MusicLibrary.Controllers
         // GET: /Songs/
         public ActionResult Index()
         {
-            var songs = db.Songs.Include(s => s.Playlist);
-            return View(songs.ToList());
+            return View(db.Songs.ToList());
         }
 
         // GET: /Songs/Details/5
@@ -39,7 +38,6 @@ namespace MusicLibrary.Controllers
         // GET: /Songs/Create
         public ActionResult Create()
         {
-            ViewBag.playlistId = new SelectList(db.Playlists, "id", "name");
             return View();
         }
 
@@ -48,7 +46,7 @@ namespace MusicLibrary.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="id,songName,artist,imageSrc,fileSrc,playlistId")] Song song)
+        public ActionResult Create([Bind(Include="id,songName,artist,imageSrc,fileSrc")] Song song)
         {
             if (ModelState.IsValid)
             {
@@ -57,7 +55,6 @@ namespace MusicLibrary.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.playlistId = new SelectList(db.Playlists, "id", "name", song.playlistId);
             return View(song);
         }
 
@@ -73,7 +70,6 @@ namespace MusicLibrary.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.playlistId = new SelectList(db.Playlists, "id", "name", song.playlistId);
             return View(song);
         }
 
@@ -82,7 +78,7 @@ namespace MusicLibrary.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="id,songName,artist,imageSrc,fileSrc,playlistId")] Song song)
+        public ActionResult Edit([Bind(Include="id,songName,artist,imageSrc,fileSrc")] Song song)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +86,6 @@ namespace MusicLibrary.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.playlistId = new SelectList(db.Playlists, "id", "name", song.playlistId);
             return View(song);
         }
 

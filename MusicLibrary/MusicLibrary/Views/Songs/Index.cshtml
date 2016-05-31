@@ -12,9 +12,6 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Playlist.name)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.songName)
         </th>
         <th>
@@ -31,9 +28,6 @@
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Playlist.name)
-        </td>
         <td>
             @Html.DisplayFor(modelItem => item.songName)
         </td>

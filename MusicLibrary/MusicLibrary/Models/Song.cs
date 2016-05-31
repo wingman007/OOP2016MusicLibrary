@@ -12,6 +12,7 @@ namespace MusicLibrary.Models
         public string artist { get; set; }
         public string imageSrc { get; set; }
         public string fileSrc { get; set; }
+        public virtual ApplicationUser User { get; set; }
         public int playlistId { get; set; }
         public virtual Playlist Playlist { get; set; }
     }

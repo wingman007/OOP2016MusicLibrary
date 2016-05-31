@@ -177,6 +177,38 @@
     <Compile Include="Migrations\201605311113458_AddSongsAndPlaylists.Designer.cs">
       <DependentUpon>201605311113458_AddSongsAndPlaylists.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605311540022_add-migration AddSongsOfUser.cs" />
+    <Compile Include="Migrations\201605311540022_add-migration AddSongsOfUser.Designer.cs">
+      <DependentUpon>201605311540022_add-migration AddSongsOfUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605311703445_NewClassAdded.cs" />
+    <Compile Include="Migrations\201605311703445_NewClassAdded.Designer.cs">
+      <DependentUpon>201605311703445_NewClassAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605311716153_NewTry.cs" />
+    <Compile Include="Migrations\201605311716153_NewTry.Designer.cs">
+      <DependentUpon>201605311716153_NewTry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605311737089_sss.cs" />
+    <Compile Include="Migrations\201605311737089_sss.Designer.cs">
+      <DependentUpon>201605311737089_sss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605311755555_minnew.cs" />
+    <Compile Include="Migrations\201605311755555_minnew.Designer.cs">
+      <DependentUpon>201605311755555_minnew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605311803346_ssssssssss.cs" />
+    <Compile Include="Migrations\201605311803346_ssssssssss.Designer.cs">
+      <DependentUpon>201605311803346_ssssssssss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605311813190_11111.cs" />
+    <Compile Include="Migrations\201605311813190_11111.Designer.cs">
+      <DependentUpon>201605311813190_11111.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605311831405_aaa.cs" />
+    <Compile Include="Migrations\201605311831405_aaa.Designer.cs">
+      <DependentUpon>201605311831405_aaa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -261,6 +293,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201605311113458_AddSongsAndPlaylists.resx">
       <DependentUpon>201605311113458_AddSongsAndPlaylists.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605311540022_add-migration AddSongsOfUser.resx">
+      <DependentUpon>201605311540022_add-migration AddSongsOfUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605311703445_NewClassAdded.resx">
+      <DependentUpon>201605311703445_NewClassAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605311716153_NewTry.resx">
+      <DependentUpon>201605311716153_NewTry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605311737089_sss.resx">
+      <DependentUpon>201605311737089_sss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605311755555_minnew.resx">
+      <DependentUpon>201605311755555_minnew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605311803346_ssssssssss.resx">
+      <DependentUpon>201605311803346_ssssssssss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605311813190_11111.resx">
+      <DependentUpon>201605311813190_11111.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605311831405_aaa.resx">
+      <DependentUpon>201605311831405_aaa.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

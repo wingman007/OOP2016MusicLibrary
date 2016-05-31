@@ -8,6 +8,9 @@ namespace MusicLibrary.Models
     public class ApplicationUser : IdentityUser
     {
         public virtual ICollection<Playlist> Playlist { get; set; }
+        public virtual ICollection<Song> Songs { get; set; }
+
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
