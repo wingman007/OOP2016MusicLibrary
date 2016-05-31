@@ -163,8 +163,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605310900294_InitialCreate.cs" />
+    <Compile Include="Migrations\201605310900294_InitialCreate.Designer.cs">
+      <DependentUpon>201605310900294_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605311047336_TryToFixTheError.cs" />
+    <Compile Include="Migrations\201605311047336_TryToFixTheError.Designer.cs">
+      <DependentUpon>201605311047336_TryToFixTheError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Playlist.cs" />
+    <Compile Include="Models\Song.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -224,6 +235,14 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201605310900294_InitialCreate.resx">
+      <DependentUpon>201605310900294_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605311047336_TryToFixTheError.resx">
+      <DependentUpon>201605311047336_TryToFixTheError.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
