@@ -203,5 +203,20 @@ namespace OOP2016MusicLibrary.Controllers
 
             return RedirectToAction("UploadDocument");
         }
+
+        public ActionResult Play(int id2 = 0)
+        {
+            var songs = db.Songs.Where(c => c.playlistId == id2);
+            ViewBag.id2 = id2;
+            Playlist thisPlaylist = db.Playlists.Find(id2);
+            var UserId = User.Identity.GetUserId();
+
+            if (thisPlaylist.User.Id != UserId)
+            {
+                return RedirectToAction("Index", "Playlists");
+            }
+            //var songs = db.Songs.Include(s => s.Playlist);
+            return View(songs.ToList());
+        }
     }
 }

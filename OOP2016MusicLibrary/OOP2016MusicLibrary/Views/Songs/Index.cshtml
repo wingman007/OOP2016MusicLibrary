@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
+<h2>Songs</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create", new {id2= ViewBag.id2 })
@@ -12,13 +12,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Playlist.name)
+           Playlist name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.songName)
+            Song name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.artist)
+           Artist
         </th>
         <th>
             @Html.DisplayNameFor(model => model.imageSrc)
