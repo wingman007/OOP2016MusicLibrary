@@ -169,6 +169,10 @@
     <Compile Include="Migrations\201605311844039_first.Designer.cs">
       <DependentUpon>201605311844039_first.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606011901545_NoImg.cs" />
+    <Compile Include="Migrations\201606011901545_NoImg.Designer.cs">
+      <DependentUpon>201606011901545_NoImg.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -198,7 +202,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -232,7 +238,7 @@
     <Content Include="Views\Songs\Delete.cshtml" />
     <Content Include="Views\Songs\Details.cshtml" />
     <Content Include="Views\Songs\Edit.cshtml" />
-    <Content Include="Views\Songs\Index.cshtml" />
+    <Content Include="Views\Songs\Index1.cshtml" />
     <Content Include="Views\Songs\Play.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -248,6 +254,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201605311844039_first.resx">
       <DependentUpon>201605311844039_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606011901545_NoImg.resx">
+      <DependentUpon>201606011901545_NoImg.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

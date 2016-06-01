@@ -17,7 +17,7 @@ namespace OOP2016MusicLibrary.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: /Songs/
-        public ActionResult Index(int id2 = 0)
+        public ActionResult Index1(int id2 = 0)
         {
             var songs = db.Songs.Where(c => c.playlistId == id2);
             ViewBag.id2 = id2;
@@ -197,7 +197,7 @@ namespace OOP2016MusicLibrary.Controllers
             if (file != null && file.ContentLength > 0)
             {
                 var fileName = Path.GetFileName(file.FileName);
-                var path = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                var path = Path.Combine(Server.MapPath("~/Songs/"), fileName);
                 file.SaveAs(path);
             }
 

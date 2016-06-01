@@ -9,15 +9,10 @@
 
 @using (Html.BeginForm("Upload", "Songs", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-   <input type="file" name="file" />
+    <input type="file" name="file" accept=".mp3,audio/*" />
    <input type="submit" name="Submit" id="Submit" value="Upload"/>
 }
 
-@using (Html.BeginForm("Upload", "Songs", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
-    <input type="file" name="file" />
-    <input type="submit" name="Submit" id="Submit" value="Upload" />
-}
 
 @using (Html.BeginForm(new { id2 = ViewBag.id2 }))
 {
@@ -44,24 +39,11 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.imageSrc, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-
-                <input class="text-box single-line" id="imageSrc" name="imageSrc" value="" type="file">
-                <span class="field-validation-valid" data-valmsg-for="imageSrc" data-valmsg-replace="true"></span>
-
-                <!--
-                @Html.EditorFor(model => model.imageSrc)
-                @Html.ValidationMessageFor(model => model.imageSrc)
-                    -->
-            </div>
-        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.fileSrc, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="text-box single-line" id="fileSrc" name="fileSrc" value="" type="file">
+                <input class="text-box single-line" id="fileSrc" name="fileSrc" value="" type="file" accept=".mp3,audio/*">
                 <span class="field-validation-valid" data-valmsg-for="fileSrc" data-valmsg-replace="true"></span>
                 <!--
                 @Html.EditorFor(model => model.fileSrc)
