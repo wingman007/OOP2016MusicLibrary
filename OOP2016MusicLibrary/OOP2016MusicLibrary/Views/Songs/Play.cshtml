@@ -9,15 +9,41 @@
 <audio controls="" id="first" src=""></audio>
 <ul id="playlist">
     <p id="title">Playlist</p>
-    @foreach (var item in Model)
+    @if(true)
     {
-        <li id="@Html.DisplayFor(modelItem => item.id)" onclick="changeclass(this.id);" data-value="@Html.DisplayFor(modelItem => item.fileSrc)">@Html.DisplayFor(modelItem => item.artist) - @Html.DisplayFor(modelItem => item.songName)</li>
+        int idJs = 1;
+        foreach (var item in Model)
+        {
+       
+        <li id="@idJs" onclick="changeclass(this.id);" data-value="@Html.DisplayFor(modelItem => item.fileSrc)">@Html.DisplayFor(modelItem => item.artist) - @Html.DisplayFor(modelItem => item.songName)</li>
+        idJs = idJs+1;
+        }
     }
+
 </ul>
 
 <div>
     @Html.ActionLink("Back to Playlist","Index","Playlists")
 </div>
+
+<script>
+    function changeclass(clicked_id) {
+
+        var audio = document.getElementById('first');
+        audio.src = 
+            '/Images/' +
+            document.getElementById(clicked_id).getAttribute('data-value');
+        audio.play();
+
+
+        audio.onended = function () {
+            changeclass(parseInt(clicked_id) + 1);
+
+        };
+
+    }
+
+</script>
 
 <style>
     audio {
