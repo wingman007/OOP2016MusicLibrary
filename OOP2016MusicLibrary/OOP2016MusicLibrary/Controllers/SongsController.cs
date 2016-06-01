@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using OOP2016MusicLibrary.Models;
 using Microsoft.AspNet.Identity;
+using System.IO;
 
 namespace OOP2016MusicLibrary.Controllers
 {
@@ -76,14 +77,16 @@ namespace OOP2016MusicLibrary.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="id,songName,artist,imageSrc,fileSrc,playlistId")] Song song, int id2 = 0)
+        public ActionResult Create([Bind(Include = "id,songName,artist,imageSrc,fileSrc,playlistId")] Song song, int id2 = 0)
         {
             if (ModelState.IsValid)
             {
+
                 song.Playlist = db.Playlists.Find(id2);
                 song.playlistId = id2;
                 db.Songs.Add(song);
                 db.SaveChanges();
+
                 return RedirectToAction("Index", new { id2 = id2});
             }
 
@@ -187,6 +190,18 @@ namespace OOP2016MusicLibrary.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult Upload(HttpPostedFileBase file)
+        {
+            if (file != null && file.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(file.FileName);
+                var path = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                file.SaveAs(path);
+            }
+
+            return RedirectToAction("UploadDocument");
         }
     }
 }
