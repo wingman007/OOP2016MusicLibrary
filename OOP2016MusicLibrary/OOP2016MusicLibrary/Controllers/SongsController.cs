@@ -200,8 +200,8 @@ namespace OOP2016MusicLibrary.Controllers
                 var path = Path.Combine(Server.MapPath("~/Songs/"), fileName);
                 file.SaveAs(path);
             }
-
-            return RedirectToAction("UploadDocument");
+            
+            return RedirectToAction("Create", "Songs");
         }
 
         public ActionResult Play(int id2 = 0)

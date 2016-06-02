@@ -6,12 +6,50 @@
 
 <h2>Create Song</h2>
 
+<script>
+    // Run on page load
+    window.onload = function () {
+
+        // If values are not blank, restore them to the fields
+        var name = sessionStorage.getItem('songName');
+        if (name !== null) $('#songName').val(name);
+
+        var email = sessionStorage.getItem('artist');
+        if (email !== null) $('#inputEmail').val(email);
+
+        var subject = sessionStorage.getItem('artist');
+        if (subject !== null) $('#artist').val(subject);
+
+        var message = sessionStorage.getItem('fileSrc');
+        if (message !== null) $('#fileSrc').val(message);
+    }
+
+    // Before refreshing the page, save the form data to sessionStorage
+    window.onbeforeunload = function () {
+        sessionStorage.setItem("songName", $('#songName').val());
+        sessionStorage.setItem("artist", $('#artist').val());
+        sessionStorage.setItem("fileSrc", $('#fileSrc').val());
+    }
+</script>
 
 @using (Html.BeginForm("Upload", "Songs", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    <input type="file" name="file" accept=".mp3,audio/*" />
-   <input type="submit" name="Submit" id="Submit" value="Upload"/>
+    //<input type="text" name="id2" value="@ViewBag.id2 " />
+    <input onchange="changeSrc();" type="file" name="file" accept=".mp3,audio/*" />
+    <input type="submit" name="Submit" id="Submit" value="Upload"/>
+
+    <script>
+        function changeSrc() {
+            var name = $("input[type=file]").val();
+            
+            var pieces = name.split('\\');
+            var filename = pieces[pieces.length - 1];
+
+            document.getElementById("fileSrc").value = filename;
+        }
+</script>
 }
+
 
 
 @using (Html.BeginForm(new { id2 = ViewBag.id2 }))
@@ -43,7 +81,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.fileSrc, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="text-box single-line" id="fileSrc" name="fileSrc" value="" type="file" accept=".mp3,audio/*">
+                <input class="text-box single-line" id="fileSrc" name="fileSrc" value="" type="text" disabled>
                 <span class="field-validation-valid" data-valmsg-for="fileSrc" data-valmsg-replace="true"></span>
                 <!--
                 @Html.EditorFor(model => model.fileSrc)
