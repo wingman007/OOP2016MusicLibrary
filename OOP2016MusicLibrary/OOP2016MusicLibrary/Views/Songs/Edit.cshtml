@@ -18,7 +18,7 @@
         @Html.HiddenFor(model => model.id)
 
         <div class="form-group">
-            @Html.LabelFor(model => model.songName, new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="songName">Song name</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.songName)
                 @Html.ValidationMessageFor(model => model.songName)
@@ -26,7 +26,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.artist, new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="artist">Artist</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.artist)
                 @Html.ValidationMessageFor(model => model.artist)
@@ -34,7 +34,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.fileSrc, new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="fileSrc">File name</label>
             <div class="col-md-10">
                 @Html.EditorFor(model => model.fileSrc)
                 @Html.ValidationMessageFor(model => model.fileSrc)
@@ -42,7 +42,7 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.playlistId, "playlistId", new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="playlistid">Playlist name</label>
             <div class="col-md-10">
                 @ViewBag.playlistName
 
