@@ -87,7 +87,7 @@ namespace OOP2016MusicLibrary.Controllers
                 db.Songs.Add(song);
                 db.SaveChanges();
 
-                return RedirectToAction("Index", new { id2 = id2});
+                return RedirectToAction("Index1", new { id2 = id2});
             }
 
             ViewBag.playlistId = new SelectList(db.Playlists, "id", "name");
@@ -140,7 +140,7 @@ namespace OOP2016MusicLibrary.Controllers
                 song.playlistId = id2;
                 db.Entry(song).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index", new { id2 = id2});
+                return RedirectToAction("Index1", new { id2 = id2});
             }
 
             ViewBag.id2 = id2;
@@ -180,7 +180,7 @@ namespace OOP2016MusicLibrary.Controllers
             Song song = db.Songs.Find(id);
             db.Songs.Remove(song);
             db.SaveChanges();
-            return RedirectToAction("Index", new { id2 = id2});
+            return RedirectToAction("Index1", new { id2 = id2});
         }
 
         protected override void Dispose(bool disposing)
@@ -200,8 +200,8 @@ namespace OOP2016MusicLibrary.Controllers
                 var path = Path.Combine(Server.MapPath("~/Songs/"), fileName);
                 file.SaveAs(path);
             }
+            return RedirectToAction("Index", "Playlists");
             
-            return RedirectToAction("Create", "Songs");
         }
 
         public ActionResult Play(int id2 = 0)

@@ -4,21 +4,18 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create Song</h2>
+<h2>Upload Song</h2>
 
 <script>
     // Run on page load
     window.onload = function () {
 
         // If values are not blank, restore them to the fields
-        var name = sessionStorage.getItem('songName');
-        if (name !== null) $('#songName').val(name);
+        //var name = sessionStorage.getItem('songName');
+        //if (name !== null) $('#songName').val(name);
 
-        var email = sessionStorage.getItem('artist');
-        if (email !== null) $('#inputEmail').val(email);
-
-        var subject = sessionStorage.getItem('artist');
-        if (subject !== null) $('#artist').val(subject);
+        //var subject = sessionStorage.getItem('artist');
+        //if (subject !== null) $('#artist').val(subject);
 
         var message = sessionStorage.getItem('fileSrc');
         if (message !== null) $('#fileSrc').val(message);
@@ -26,22 +23,22 @@
 
     // Before refreshing the page, save the form data to sessionStorage
     window.onbeforeunload = function () {
-        sessionStorage.setItem("songName", $('#songName').val());
-        sessionStorage.setItem("artist", $('#artist').val());
+        //sessionStorage.setItem("songName", $('#songName').val());
+        //sessionStorage.setItem("artist", $('#artist').val());
         sessionStorage.setItem("fileSrc", $('#fileSrc').val());
     }
 </script>
 
 @using (Html.BeginForm("Upload", "Songs", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
-    //<input type="text" name="id2" value="@ViewBag.id2 " />
-    <input onchange="changeSrc();" type="file" name="file" accept=".mp3,audio/*" />
-    <input type="submit" name="Submit" id="Submit" value="Upload"/>
+    <input onchange="changeSrc();" type="file" name="file" accept=".mp3,audio/*"/>
+    <br />
+    <input type="submit" name="Submit" id="Submit" value="Upload" class="btn btn-default" />
 
     <script>
         function changeSrc() {
             var name = $("input[type=file]").val();
-            
+
             var pieces = name.split('\\');
             var filename = pieces[pieces.length - 1];
 
@@ -51,6 +48,8 @@
 }
 
 
+<h2>Create Song</h2>
+<p> When you upload a song come again and create the song</p>
 
 @using (Html.BeginForm(new { id2 = ViewBag.id2 }))
 {
@@ -81,7 +80,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.fileSrc, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input class="text-box single-line" id="fileSrc" name="fileSrc" value="" type="text" disabled>
+                <input class="text-box single-line" id="fileSrc" name="fileSrc" value="" type="text" >
                 <span class="field-validation-valid" data-valmsg-for="fileSrc" data-valmsg-replace="true"></span>
                 <!--
                 @Html.EditorFor(model => model.fileSrc)
@@ -110,7 +109,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index", new { id2 = ViewBag.id2 })
+    @Html.ActionLink("Back to List", "Index1", new { id2 = ViewBag.id2 })
 </div>
 
 @section Scripts {
