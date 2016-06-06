@@ -1,0 +1,117 @@
+﻿@model OOP2016MusicLibrary.Models.Song
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Upload Song</h2>
+
+<script>
+    // Run on page load
+    window.onload = function () {
+
+        // If values are not blank, restore them to the fields
+        //var name = sessionStorage.getItem('songName');
+        //if (name !== null) $('#songName').val(name);
+
+        //var subject = sessionStorage.getItem('artist');
+        //if (subject !== null) $('#artist').val(subject);
+
+        var message = sessionStorage.getItem('fileSrc');
+        if (message !== null) $('#fileSrc').val(message);
+    }
+
+    // Before refreshing the page, save the form data to sessionStorage
+    window.onbeforeunload = function () {
+        //sessionStorage.setItem("songName", $('#songName').val());
+        //sessionStorage.setItem("artist", $('#artist').val());
+        sessionStorage.setItem("fileSrc", $('#fileSrc').val());
+    }
+</script>
+
+@using (Html.BeginForm("Upload", "Songs", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input onchange="changeSrc();" type="file" name="file" accept=".mp3,audio/*"/>
+    <br />
+    <input type="submit" name="Submit" id="Submit" value="Upload" class="btn btn-default" />
+
+    <script>
+        function changeSrc() {
+            var name = $("input[type=file]").val();
+
+            var pieces = name.split('\\');
+            var filename = pieces[pieces.length - 1];
+
+            document.getElementById("fileSrc").value = filename;
+        }
+</script>
+}
+
+
+<h2>Create Song</h2>
+<p> When you upload a song come again and create the song</p>
+
+@using (Html.BeginForm(new { id2 = ViewBag.id2 }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Song</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="songName">Song name</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.songName)
+                @Html.ValidationMessageFor(model => model.songName)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="artist">Artist</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.artist)
+                @Html.ValidationMessageFor(model => model.artist)
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="fileSrc">File name</label>
+            <div class="col-md-10">
+                <input class="text-box single-line" id="fileSrc" name="fileSrc" value="" type="text" >
+                <span class="field-validation-valid" data-valmsg-for="fileSrc" data-valmsg-replace="true"></span>
+                <!--
+                @Html.EditorFor(model => model.fileSrc)
+                @Html.ValidationMessageFor(model => model.fileSrc)
+                    -->
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="playlistid">Playlist name</label>
+            <div class="col-md-10">
+                @ViewBag.playlistName
+                <!--
+                @Html.DropDownList("playlistId", String.Empty)
+                @Html.ValidationMessageFor(model => model.playlistId)
+                    -->
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index1", new { id2 = ViewBag.id2 })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

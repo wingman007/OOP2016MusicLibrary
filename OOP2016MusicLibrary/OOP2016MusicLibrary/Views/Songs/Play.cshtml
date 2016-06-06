@@ -1,0 +1,82 @@
+﻿@model IEnumerable<OOP2016MusicLibrary.Models.Song>
+
+@{
+    ViewBag.Title = "Play";
+}
+
+<h2>Play</h2>
+
+<audio controls="" id="first" src=""></audio>
+<ul id="playlist">
+    <p id="title">Playlist</p>
+    @if(true)
+    {
+        int idJs = 1;
+        foreach (var item in Model)
+        {
+       
+        <li id="@idJs" onclick="changeclass(this.id);" data-value="@Html.DisplayFor(modelItem => item.fileSrc)">@Html.DisplayFor(modelItem => item.artist) - @Html.DisplayFor(modelItem => item.songName)</li>
+        idJs = idJs+1;
+        }
+    }
+
+</ul>
+
+<div>
+    @Html.ActionLink("Back to Playlist","Index","Playlists")
+</div>
+
+<script>
+    function changeclass(clicked_id) {
+
+        var audio = document.getElementById('first');
+        audio.src = 
+            '/Songs/' +
+            document.getElementById(clicked_id).getAttribute('data-value');
+        audio.play();
+
+
+        audio.onended = function () {
+            changeclass(parseInt(clicked_id) + 1);
+
+        };
+
+    }
+
+</script>
+
+<style>
+    audio {
+        width: 90%;
+    }
+
+    #title {
+        color: #ffffff;
+        width: 90%;
+        border: 1px solid #d9230f;
+        padding: 14px;
+        background-color: #d9230f;
+        text-transform: uppercase;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    #playlist li {
+        width: 90%;
+        border: 1px solid #dddddd;
+        padding: 14px;
+        position: relative;
+        top: -10px;
+        border-top: 0px;
+    }
+
+    #playlist {
+        padding: 0px;
+        list-style-type: none;
+    }
+
+    ul#playlist li:last-child {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+</style>

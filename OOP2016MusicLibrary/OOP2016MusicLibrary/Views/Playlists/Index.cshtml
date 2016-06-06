@@ -1,0 +1,35 @@
+﻿@model IEnumerable<OOP2016MusicLibrary.Models.Playlist>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Playlists</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.ActionLink("Songs", "Index1", "Songs", new { id2 = item.id }, null) |
+            @Html.ActionLink("Play", "Play", "Songs", new { id2 = item.id }, null) |
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>
